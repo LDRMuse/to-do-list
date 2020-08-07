@@ -31,7 +31,8 @@ found.completed = target.checked
 
   return (
     <main>
-    <h1>ToDo List</h1>
+    <h1 className='title
+                has-text-centered'>ToDo List</h1>
     <List todos={todos} handler={handleCheckbox}/>
     <Input />
     </main>

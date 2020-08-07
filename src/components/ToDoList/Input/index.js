@@ -4,10 +4,12 @@ import React, { Fragment } from 'react'
 export const Input = ({ todos }) => {
   return (
     <Fragment>
+    <div className="has-text-centered">
       <label>
-        <input type="text" />
-        <button type="onClick">Add a Todo!</button>
+        <input className="input is-primary" placeholder="Add a Todo" type="text" />
+        <button className="button is-primary is-light small" type="onClick">Add a Todo!</button>
       </label>
+      </div>
     </Fragment>
   )
 }

@@ -6,7 +6,7 @@ export const List = ({ todos, handler }) => {
 
   return (
     <Fragment>
-    <ol>
+    <ol className="has-text-centered">
       {todos.map(({ id, completed, text }) => (
         <li key={id} data-id={id} className={completed ? 'completed' : null}>
         {text} <input type="checkbox" onClick={handler}/></li>
