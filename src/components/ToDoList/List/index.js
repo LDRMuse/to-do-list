@@ -1,11 +1,20 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export const List = () => {
+export const List = ({ todos }) => {
+
+
+
+
   return (
-    <ul>
-    <li>Im a list
-    <input type='checkbox' />
-    </li>
-  </ul>
+    <ol>
+      {todos.map(({ id, text }) => (
+        <li key={id}>{text}</li>
+      ))}
+    </ol>
   )
+}
+
+List.propTypes = {
+  todos: PropTypes.array.isRequired,
 }

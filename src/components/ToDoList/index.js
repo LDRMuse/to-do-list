@@ -1,15 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Input} from './Input'
+import {List} from './List'
 import api from 'api'
 
 export const ToDoList = () => {
 
-const [state, setstate] = useState(initialState)
+const [todos, setTodos] = useState([])
 
 useEffect(() => {
   (async () => {
     const data = await api.index()
-    setState(data)
+    setTodos(data)
   })()
 }, [])
 
@@ -18,12 +19,8 @@ useEffect(() => {
   return (
     <main>
     <h1>ToDo List</h1>
-    <ul>
-      <li>Im a list
-      <input type='checkbox' />
-      </li>
-    </ul>
-    <Input />
+    <List todos={todos} />
+    {/* <Input /> */}
     </main>
   )
 }
