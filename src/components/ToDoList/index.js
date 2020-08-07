@@ -23,12 +23,10 @@ const targetID = target.parentNode.dataset.id
 setTodos(() => {
 const found = todos.find(({id}) => id === Number(targetID))
 
-found.completed = true
-
+found.completed = target.checked
 
   return todos.map(todo => todo.id === found.id ? found : todo)
 })
-
 }
 
   return (
