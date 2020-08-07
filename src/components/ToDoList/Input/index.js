@@ -1,6 +1,7 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
+// import PropTypes from 'prop-types'
 
-export const Input = () => {
+export const Input = ({ todos }) => {
   return (
     <Fragment>
       <label>
@@ -10,3 +11,7 @@ export const Input = () => {
     </Fragment>
   )
 }
+
+// Input.propTypes = {
+//   todos: PropTypes.array
+// }

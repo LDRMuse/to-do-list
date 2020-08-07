@@ -17,9 +17,17 @@ useEffect(() => {
 
 // parentNode is the List item, child is the checkbox
 const handleCheckbox = ({target}) => {
-console.log(target.checked, target.parentNode.dataset.id)
-// TODO: If checked, find the element in todos and change 'checked' to true
+const targetID = target.parentNode.dataset.id
 
+// TODO: If checked, find the element in todos and change 'checked' to true
+setTodos(() => {
+const found = todos.find(({id}) => id === Number(targetID))
+
+found.completed = true
+
+
+  return todos.map(todo => todo.id === found.id ? found : todo)
+})
 
 }
 
