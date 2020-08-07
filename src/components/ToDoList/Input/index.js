@@ -1,19 +1,17 @@
-import React, { Fragment } from 'react'
-// import PropTypes from 'prop-types'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export const Input = ({ todos }) => {
+export const Input = ({ handler }) => {
   return (
-    <Fragment>
-    <div className="has-text-centered">
+    <form className="has-text-centered">
       <label>
         <input className="input is-primary" placeholder="Add a Todo" type="text" />
-        <button className="button is-primary is-light small" type="onClick">Add a Todo!</button>
+        <button className="button is-primary has-text-black small" type="onClick">Add a Todo!</button>
       </label>
-      </div>
-    </Fragment>
+    </form>
   )
 }
 
-// Input.propTypes = {
-//   todos: PropTypes.array
-// }
+Input.propTypes = {
+  handler: PropTypes.func
+}
