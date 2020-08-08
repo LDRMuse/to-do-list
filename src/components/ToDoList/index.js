@@ -30,13 +30,16 @@ export const ToDoList = () => {
   }
 
 
-  const handleAddTodo = (event) => {
-    const newTodo = event.target.elements[0].value
-    event.preventDefault()
-    setTodos(() => {
-      return todos.concat(newTodo)
-    })
+  const handleAddTodo = (e) => {
+    e.preventDefault()
+    const newTodo = {
+      completed: false,
+      id: Date.now(),
+      text: e.target.querySelector('input').value
+    }
+    setTodos([...todos, newTodo])
 
+    e.target.querySelector('input').value = ''
   }
 
 
