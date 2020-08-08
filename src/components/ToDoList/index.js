@@ -15,6 +15,20 @@ useEffect(() => {
 }, [])
 
 
+const handleAddTodo = (e) => {
+  e.preventDefault()
+  const newTodo = {
+    completed: false,
+    id: Date.now(),
+    text: e.target.querySelector('input').value
+  }
+  setTodos([...todos, newTodo])
+
+  e.target.querySelector('input').value = ''
+}
+
+
+
 // parentNode is the List item, child is the checkbox
 const handleCheckbox = ({target}) => {
 const targetID = target.parentNode.dataset.id
@@ -33,7 +47,7 @@ found.completed = target.checked
     <main>
     <h1>ToDo List</h1>
     <List todos={todos} handler={handleCheckbox}/>
-    <Input />
+    <Input handler={handleAddTodo}/>
     </main>
   )
 }
