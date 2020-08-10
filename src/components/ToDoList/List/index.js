@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import './List.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-export const List = ({ todos, handler }) => {
+export const List = ({ todos, checkBoxHandler, trashHandler }) => {
 
 
   const todosCount = todos.length;
@@ -10,23 +12,35 @@ export const List = ({ todos, handler }) => {
 
 
 
+  let className = "has-text-centered has-background-dark has-text-danger-light"
+  className += completedCount / todosCount < 0.5 ? "has-text-success-light" : "has-text-warning-light"
+
+
+
   return (
     <Fragment>
-      <p>Todays Date is {new Date().toLocaleDateString()}</p>
-      <br></br>
-      <p>{completedCount} / {todosCount} Todos Completed</p>
-      <br></br>
-      <ol className="has-text-centered">
+      <p className="has-text-centered">
+        {new Date().toLocaleDateString()}&nbsp;
+      </p>
+<br/>
+      <p className={className}>
+        {completedCount} / {todosCount} Todos Completed!
+      </p>
+<br/>
+      <ol className="has-text-left">
         {todos.map(({ id, completed, text }) => (
           <li key={id} data-id={id} className={completed ? 'completed' : null}>
-            {text} <input type="checkbox" onClick={handler} /></li>
+            {text} <input type="checkbox" onClick={checkBoxHandler} />
+            <FontAwesomeIcon icon={faTrash} className="has-text-danger ml-2" onClick={trashHandler} /></li>
         ))}
       </ol>
+      <br/>
     </Fragment>
   )
 }
 
 List.propTypes = {
   todos: PropTypes.array.isRequired,
-  handler: PropTypes.func,
+  checkBoxHandler: PropTypes.func,
+  trashHandler: PropTypes.func,
 }
