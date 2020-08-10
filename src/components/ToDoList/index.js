@@ -32,13 +32,13 @@ export const ToDoList = () => {
 
   const handleAddTodo = (e) => {
     e.preventDefault()
+
     const newTodo = {
       completed: false,
       id: todos.length + 1,
       text: e.target.elements[0].value,
     }
     setTodos(() => todos.concat(newTodo))
-
   }
 
 
