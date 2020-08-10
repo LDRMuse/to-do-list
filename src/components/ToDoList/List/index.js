@@ -11,10 +11,9 @@ export const List = ({ todos, checkBoxHandler, trashHandler }) => {
   const completedCount = todos.filter(({ completed }) => completed).length
 
 
-
-  let className = "has-text-centered has-background-dark has-text-danger-light"
-  className += completedCount / todosCount < 0.5 ? "has-text-success-light" : "has-text-warning-light"
-
+  let className = "has-background-dark has-text-centered has-text-weight-bold my-4 py-2"
+  className +=
+    completedCount / todosCount < 0.5 ? " has-text-warning" : " has-text-success"
 
 
   return (
