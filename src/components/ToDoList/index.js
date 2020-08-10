@@ -34,12 +34,11 @@ export const ToDoList = () => {
     e.preventDefault()
     const newTodo = {
       completed: false,
-      id: Date.now(),
-      text: e.target.querySelector('input').value
+      id: todos.length + 1,
+      text: e.target.elements[0].value,
     }
-    setTodos([...todos, newTodo])
+    setTodos(() => todos.concat(newTodo))
 
-    e.target.querySelector('input').value = ''
   }
 
 
