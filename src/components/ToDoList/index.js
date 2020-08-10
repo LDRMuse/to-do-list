@@ -19,7 +19,6 @@ export const ToDoList = () => {
   const handleCheckbox = ({ target }) => {
     const targetID = target.parentNode.dataset.id
 
-    // TODO: If checked, find the element in todos and change 'checked' to true
     setTodos(() => {
       const found = todos.find(({ id }) => id === Number(targetID))
 
@@ -42,14 +41,20 @@ export const ToDoList = () => {
   }
 
 
+  const handleTrash = ({target}) => {
+
+  return target.closest('li').remove()
+  }
+
+
 
   return (
     <main className='has-text-centered'>
       <h1 className='title has-background-primary	'>
         ToDo List
     </h1>
-      <List todos={todos} handler={handleCheckbox} />
-      <Input handler={handleAddTodo} />
+      <List todos={todos} checkBoxHandler={handleCheckbox} trashHandler={handleTrash} />
+      <Input handleAdd={handleAddTodo} />
     </main>
   )
 }
